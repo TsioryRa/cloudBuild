@@ -1,21 +1,11 @@
- steps:
- - name: node
-   entrypoint: npm
-   args: ['install']
+steps:
+- name: node
+  entrypoint: npm
+  args: ['install']
   
- - name: node
-   entrypoint: npm
-   args: ['test']
-   
- - name: maven:latest
-   entrypoint: mvn 
-   args: ['test']
-   
- - name: maven:latest
-   entrypoint: mvn
-   args: ['compile']
- 
-
+- name: node
+  entrypoint: npm
+  args: ['test']
 
 
 - name: docker:latest
@@ -23,7 +13,7 @@
   
   
 - name: docker:latest
-  args: ['push', 'maryo42/demojavascript:1.0']
+  args: ['push', 'tsiodocker/demojavascript:1.0']
 
 
 
