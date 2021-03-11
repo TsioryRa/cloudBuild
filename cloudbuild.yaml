@@ -1,12 +1,7 @@
- #steps:
- #- name: maven:3-jdk-8
-  # entrypoint: mvn
-   #args: ['test']
-   
-   
  steps:
-- name: 'ubuntu'
-  args: ['sleep', '600']
-  timeout: 500s
-- name: 'ubuntu'
-  args: ['echo', 'hello world, after 600s']
+  - name: maven:3-jdk-8
+  entrypoint: mvn
+  args: ['test']
+   
+   
+
