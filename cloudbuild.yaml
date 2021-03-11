@@ -1,4 +1,6 @@
  steps:
  - name: maven:latest
-   entrypoint: mvn test
+   entrypoint: mvn 
    args: ['test']
+
+
