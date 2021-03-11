@@ -1,4 +1,4 @@
 steps:
-- name: node:latest
+- name: node
   entrypoint: npm
-  args: ['install','test']
+  args: ['install','test','run', 'build]
