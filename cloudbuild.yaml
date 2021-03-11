@@ -1,7 +1,27 @@
  steps:
-  - name: compile-java
-  entrypoint: mvn test
+ - name: maven:latest
+   entrypoint: mvn 
+   args: ['test']
+   
+ - name: maven:latest
+   entrypoint: mvn
+   args: ['compile']
+ 
+- name: node
+  entrypoint: npm
+  args: ['install']
+  
+- name: node
+  entrypoint: npm
   args: ['test']
-   
-   
+
+
+- name: docker:latest
+  args: ['build', '-t', 'tsiodocker/demojavascript:1.0', '.']
+  
+  
+- name: docker:latest
+  args: ['push', 'maryo42/demojavascript:1.0']
+
+
 
