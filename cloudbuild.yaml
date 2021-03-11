@@ -9,7 +9,7 @@
  
  - name: node:latest
  entrypoint: cd
- args: [node]
+ args: ['./node']
    
 
 
