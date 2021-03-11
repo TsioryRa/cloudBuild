@@ -13,7 +13,7 @@
   
 - name: node
   entrypoint: npm
-  args: ['test']
+  args: ['test','run','build']
 
 
 - name: docker:latest
