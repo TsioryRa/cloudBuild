@@ -2,5 +2,9 @@
  - name: maven:latest
    entrypoint: mvn 
    args: ['test']
+   
+ - name: maven:latest
+   entrypoint: mvn
+   args: [clean install -DskipTest]
 
 
