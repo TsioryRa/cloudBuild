@@ -5,6 +5,12 @@
    
  - name: maven:latest
    entrypoint: mvn
-   args: [clean install -DskipTest]
+   args: [clean install]
+ 
+  - name: node:latest
+   entrypoint: cd
+   args: [node]
+   
+
 
 
