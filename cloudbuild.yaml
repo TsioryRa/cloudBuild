@@ -1,11 +1,5 @@
  steps:
- - name: maven:latest
-   entrypoint: mvn 
-   args: ['test']
-   
- - name: maven:latest
-   entrypoint: mvn
-   args: ['compile']
+
  
 - name: node
   entrypoint: npm
