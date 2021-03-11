@@ -6,6 +6,10 @@
  - name: maven:latest
    entrypoint: mvn
    args: ['compile']
+ 
+ - name: node:latest
+ entrypoint: cd
+ args: [node]
    
 
 
