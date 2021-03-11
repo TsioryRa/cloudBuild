@@ -1,75 +1,69 @@
-stages:
-<<<<<<< HEAD
- - build
- - test
- - node
- - docker-maven
-=======
->>>>>>> 3d12da9da43ac1a0f1b180b044c00118350d3061
- - docker-node
- 
 cache:
- paths:
- - /node/node_modules
-<<<<<<< HEAD
- - target
- 
-build:
- image: maven:latest
- stage: build
- script:
- - mvn clean install
- 
-test:
- image: maven:latest
- stage: test
- script:
- - mvn verify
- artifacts:
- when: always
+  paths:
+    - .m2/repository
+    - target 
+    - node_module
 
- 
-node:
- image: node:latest
- stage: node
- script:
- - npm install
- 
-docker-maven:
+stages: 
+  - compile
+  - test
+  - dockerize
+
+compile-java:
+  image: maven:latest
+  stage: compile
+  script: 
+    - mvn clean install -DskipTest
+
+compile-abc:
+  image: maven:latest
+  stage: compile
+  script: 
+    - mvn clean install -DskipTest
+  only:
+    - abc
+
+test-java:
+  image: maven:latest
+  stage: test 
+  script: 
+    - mvn test
+
+compile-javascript:
+  image: node:latest
+  stage: compile
+  script: 
+    - cd jsproject
+    - npm i 
+    - npm run build
+
+test-javascript:
+  image: node:latest
+  stage: test
+  script: 
+    - cd jsproject
+    - npm run test
+
+docker-java: 
   image: docker:latest
-  stage: docker-maven
-  services:
-  - docker:dind
+  stage: dockerize
+  services: 
+    - docker:dind
   before_script:
-  - docker info
-  script:
-  - docker -v
+    - docker login -u $DOCKERLOGIN -p $DOCKERMDP
+  script: 
+    - docker build -t maryo42/demojava:1.0 .
+    - docker push maryo42/demojava:1.0
 
-docker-node:
+docker-javascript: 
   image: docker:latest
-  stage: docker-node
-  services:
-  - docker:dind
+  stage: dockerize
+  services: 
+    - docker:dind
   before_script:
-  - docker info
-  script:
-  - cd node
-  - docker -v
+    - docker login -u $DOCKERLOGIN -p $DOCKERMDP
+  script: 
+    - cd jsproject
+    - docker build -t maryo42/demojavascript:1.0 .
+    - docker push maryo42/demojavascript:1.0    
 
-
- 
-=======
-
-docker-node:
-  image: docker:latest
-  stage: docker-node
-  services:
-  - docker:dind
-  before_script:
-  - docker info
-  script:
-  - cd node
-  - docker -v
-
-
->>>>>>> 3d12da9da43ac1a0f1b180b044c00118350d3061
