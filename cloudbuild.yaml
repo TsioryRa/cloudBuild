@@ -1,4 +1,4 @@
  steps:
-  - name: compile-java
-  entrypoint: mvn test
-  args: ['test']
+ - name: maven:3-jdk-8
+   entrypoint: mvn test
+   args: ['test']
