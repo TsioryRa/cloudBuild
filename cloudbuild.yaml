@@ -17,7 +17,7 @@
   args: ['push', 'tsiodocker/demojava:1.0']
   
 - name: docker:latest
-  args: ['build',,'-t', './node/tsiodocker/demojavascript:1.0']
+  args: ['build','-t', './node/tsiodocker/demojavascript:1.0', '.']
   
 - name: docker:latest
   args: ['push', './node/tsiodocker/demojavascript:1.0']
