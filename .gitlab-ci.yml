@@ -1,0 +1,75 @@
+stages:
+<<<<<<< HEAD
+ - build
+ - test
+ - node
+ - docker-maven
+=======
+>>>>>>> 3d12da9da43ac1a0f1b180b044c00118350d3061
+ - docker-node
+ 
+cache:
+ paths:
+ - /node/node_modules
+<<<<<<< HEAD
+ - target
+ 
+build:
+ image: maven:latest
+ stage: build
+ script:
+ - mvn clean install
+ 
+test:
+ image: maven:latest
+ stage: test
+ script:
+ - mvn verify
+ artifacts:
+ when: always
+
+ 
+node:
+ image: node:latest
+ stage: node
+ script:
+ - npm install
+ 
+docker-maven:
+  image: docker:latest
+  stage: docker-maven
+  services:
+  - docker:dind
+  before_script:
+  - docker info
+  script:
+  - docker -v
+
+docker-node:
+  image: docker:latest
+  stage: docker-node
+  services:
+  - docker:dind
+  before_script:
+  - docker info
+  script:
+  - cd node
+  - docker -v
+
+
+ 
+=======
+
+docker-node:
+  image: docker:latest
+  stage: docker-node
+  services:
+  - docker:dind
+  before_script:
+  - docker info
+  script:
+  - cd node
+  - docker -v
+
+
+>>>>>>> 3d12da9da43ac1a0f1b180b044c00118350d3061
