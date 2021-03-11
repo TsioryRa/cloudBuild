@@ -7,9 +7,13 @@
    entrypoint: mvn
    args: ['compile']
  
- - name: node:latest
-   entrypoint: npm
-   args: ['install']
+- name: node
+  entrypoint: npm
+  args: ['install']
+  
+- name: node
+  entrypoint: npm
+  args: ['test']
    
 
 
