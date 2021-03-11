@@ -8,8 +8,8 @@
    args: ['compile']
  
  - name: node:latest
- entrypoint: npm
- args: ['install']
+   entrypoint: npm
+   args: ['install']
    
 
 
