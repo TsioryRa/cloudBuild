@@ -1,5 +1,5 @@
- steps:
- - name: maven:latest
+steps:
+- name: maven:latest
    entrypoint: mvn 
    args: ['test','compile']
    
