@@ -6,10 +6,6 @@
  - name: maven:latest
    entrypoint: mvn
    args: [clean install]
- 
-  - name: node:latest
-   entrypoint: cd
-   args: [node]
    
 
 
