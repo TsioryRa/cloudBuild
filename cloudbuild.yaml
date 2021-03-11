@@ -1,26 +1,29 @@
-steps:
-- name: maven:latest
-   entrypoint: mvn 
-   args: ['test','compile']
-   
- 
-- name: node
-  entrypoint: npm
-  args: ['install',test','run','build]
+ steps:
+ - name: node
+   entrypoint: npm
+   args: ['install']
   
+ - name: node
+   entrypoint: npm
+   args: ['test']
+   
+ - name: maven:latest
+   entrypoint: mvn 
+   args: ['test']
+   
+ - name: maven:latest
+   entrypoint: mvn
+   args: ['compile']
+ 
+
+
 
 - name: docker:latest
-  args: ['build', '-t', 'tsiodocker/demojavat:1.0', '.']
+  args: ['build', '-t', 'tsiodocker/demojavascript:1.0', '.']
   
   
 - name: docker:latest
-  args: ['push', 'tsiodocker/demojava:1.0']
-  
-- name: docker:latest
-  args: ['build','-t', './node/tsiodocker/demojavascript:1.0', '.']
-  
-- name: docker:latest
-  args: ['push', './node/tsiodocker/demojavascript:1.0']
+  args: ['push', 'maryo42/demojavascript:1.0']
 
 
 
