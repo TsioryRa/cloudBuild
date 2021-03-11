@@ -5,7 +5,7 @@
    
  - name: maven:latest
    entrypoint: mvn
-   args: ['clean install -P test']
+   args: ['compile']
    
 
 
