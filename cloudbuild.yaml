@@ -9,6 +9,6 @@ steps:
   
 - name: docker:latest
   args: ['build', '-t', 'tsiodocker/demojavascript:1.0', '.']
-
-- name: docker:latest
   args: ['push','tsiodocker/demojavascript:1.0']
+
+
